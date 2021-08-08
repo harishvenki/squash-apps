@@ -1,0 +1,156 @@
+<div class="outer-container w-50">
+  <div class="d-flex flex-column justify-content-around align-items-center">
+    <h2>Add your company details</h2>
+    <span class="sub-text">
+      Lorem Ipsum is simply dummy text of printing and typescripting
+      industry</span
+    >
+  </div>
+
+  <form class="m-3" [formGroup]="companyDetails">
+    <div class="d-flex flex-column">
+      <div class="image">
+        <img
+          src="/assets/images/company.jpeg"
+          width="50"
+          height="50"
+          (click)="file.click()"
+        />
+        <input type="file" style="display: none" #file />
+        <span class="terms m-5">Upload your company logo</span>
+      </div>
+      <label for="fullName">Company Name</label>
+      <input
+        type="text"
+        class="text-box"
+        name="companyName"
+        formControlName="companyName"
+      />
+
+      <div
+        *ngIf="
+          this.companyDetails.controls['companyName'].invalid &&
+          (this.companyDetails.controls['companyName'].dirty ||
+            this.companyDetails.controls['companyName'].touched)
+        "
+        class="error"
+      >
+        <div
+          *ngIf="companyDetails.controls['companyName'].errors"
+          class="text-danger"
+        >
+          Please enter company name
+        </div>
+      </div>
+
+      <label for="fullName">Email id</label>
+      <input
+        type="text"
+        class="text-box"
+        name="email"
+        formControlName="email"
+      />
+
+      <div
+        *ngIf="
+          companyDetails.controls['email'].invalid &&
+          (companyDetails.controls['email'].dirty ||
+            companyDetails.controls['email'].touched)
+        "
+        class="error"
+      >
+        <div
+          *ngIf="companyDetails.controls['email'].errors"
+          class="text-danger"
+        >
+          Please enter email
+        </div>
+      </div>
+
+      <label for="fullName">Job title</label>
+      <input
+        type="text"
+        class="text-box"
+        name="title"
+        formControlName="title"
+      />
+
+      <div
+        *ngIf="
+          companyDetails.controls['title'].invalid &&
+          (companyDetails.controls['title'].dirty ||
+            companyDetails.controls['title'].touched)
+        "
+        class="error"
+      >
+        <div
+          *ngIf="companyDetails.controls['title'].errors"
+          class="text-danger"
+        >
+          Please select job title
+        </div>
+      </div>
+
+      <label for="fullName">Years of experience</label>
+      <input
+        type="number"
+        class="text-box"
+        name="experience"
+        formControlName="experience"
+      />
+
+      <div
+        *ngIf="
+          companyDetails.controls['experience'].invalid &&
+          (companyDetails.controls['experience'].dirty ||
+            companyDetails.controls['experience'].touched)
+        "
+        class="error"
+      >
+        <div
+          *ngIf="companyDetails.controls['experience'].errors"
+          class="text-danger"
+        >
+          Please select job title
+        </div>
+      </div>
+
+      <div class="terms-checkbox">
+        <input
+          type="checkbox"
+          class="checkbox"
+          name="terms"
+          formControlName="terms"
+        />
+        <span for="terms" class="accept-terms"
+          >I accept the <span class="terms">Terms and Conditions </span></span
+        >
+        <div
+          *ngIf="
+            companyDetails.controls['terms'].invalid &&
+            (companyDetails.controls['terms'].dirty ||
+              companyDetails.controls['terms'].touched)
+          "
+          class="error"
+        >
+          <div
+            *ngIf="companyDetails.controls['terms'].errors"
+            class="text-danger"
+          >
+            Please accept the terms and condition
+          </div>
+        </div>
+        
+      </div>
+
+     
+      <span class="text-danger error" *ngIf="showError"
+          >Please fill all the details to continue</span
+        >
+      <div class="terms-checkbox">
+        <button class="back" (click)="back()">Back</button>
+        <button class="send-otp" (click)="next()">Send OTP</button>
+      </div>
+    </div>
+  </form>
+</div>

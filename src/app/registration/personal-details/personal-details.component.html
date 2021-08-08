@@ -1,0 +1,121 @@
+<div class="outer-container w-50">
+  <div class="d-flex flex-column justify-content-around align-items-center">
+    <h2>Add your personal details</h2>
+    <span class="sub-text">
+      Lorem Ipsum is simply dummy text of printing and typescripting
+      industry</span
+    >
+  </div>
+
+  <div class="m-3">
+    <form class="d-flex flex-column" [formGroup]="personalDetails">
+      <label for="fullName">Full Name</label>
+      <input
+        type="text"
+        class="text-box"
+        name="fullName"
+        formControlName="fullName"
+      />
+      <div
+        *ngIf="
+          personalDetails.controls['fullName'].invalid &&
+          (personalDetails.controls['fullName'].dirty ||
+            personalDetails.controls['fullName'].touched)
+        "
+        class="error"
+      >
+        <div
+          *ngIf="personalDetails.controls['fullName'].errors"
+          class="text-danger"
+        >
+          Please enter full name
+        </div>
+      </div>
+
+      <label for="gender">Gender</label>
+      <div class="gender-selection">
+        <div class="gender" (click)="selectGender('MALE', 0)">Male</div>
+        <div class="gender" (click)="selectGender('FEMALE', 1)">Female</div>
+        <div class="gender" (click)="selectGender('OTHER', 2)">Other</div>
+      </div>
+
+      <label for="country">Country</label>
+      <select
+        name="country"
+        class="text-box selectPicker"
+        formControlName="country"
+      >
+        <option>China</option>
+        <option>Bangladesh</option>
+        <option>India</option>
+      </select>
+      <div
+        *ngIf="
+          personalDetails.controls['country'].invalid &&
+          (personalDetails.controls['country'].dirty ||
+            personalDetails.controls['country'].touched)
+        "
+        class="error"
+      >
+        <div
+          *ngIf="personalDetails.controls['country'].errors"
+          class="text-danger"
+        >
+          Please select country
+        </div>
+      </div>
+
+      <label for="state">State</label>
+      <select name="state" class="text-box" formControlName="state">
+        <option>Tamil Nadu</option>
+        <option>Kerala</option>
+        <option>Karnataka</option>
+        <option>Andhra Pradesh</option>
+      </select>
+      <div
+        *ngIf="
+          personalDetails.controls['state'].invalid &&
+          (personalDetails.controls['state'].dirty ||
+            personalDetails.controls['state'].touched)
+        "
+        class="error"
+      >
+        <div
+          *ngIf="personalDetails.controls['state'].errors"
+          class="text-danger"
+        >
+          Please select state
+        </div>
+      </div>
+
+      <label for="phone">Phone</label>
+      <input
+        type="number"
+        class="text-box"
+        name="fullName"
+        formControlName="phone"
+      />
+      <div
+        *ngIf="
+          personalDetails.controls['phone'].invalid &&
+          (personalDetails.controls['phone'].dirty ||
+            personalDetails.controls['phone'].touched)
+        "
+        class="error"
+      >
+        <div
+          *ngIf="personalDetails.controls['phone'].errors"
+          class="text-danger"
+        >
+          Please enter phone
+        </div>
+      </div>
+
+      <span class="text-danger error" *ngIf="showError"
+        >Please fill all the details to continue</span
+      >
+
+      <button class="next-step" (click)="next()">Next</button>
+    </form>
+  </div>
+</div>

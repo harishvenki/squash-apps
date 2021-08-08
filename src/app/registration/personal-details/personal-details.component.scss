@@ -1,0 +1,29 @@
+.gender {
+    width: 100px;
+    border-color: #fed8b1 !important;
+    border-radius: 5px;
+    box-shadow: none;
+    display: inline-block;
+    text-align: center;
+    margin-right: 10px;
+    height: 35px;
+    padding: 5px;
+    cursor: pointer;
+    border: 1px solid lightgray !important;
+   
+}
+
+.gender-focus {
+    border: 1px solid #FF5F1F !important;
+    background-color: #fed8b1 !important;
+    color: #FF5F1F;
+}
+
+.gender-selection{
+    outline: none;
+    margin: 0 80px 10px 80px;
+    border-radius: 5px;
+    
+}
+
+
